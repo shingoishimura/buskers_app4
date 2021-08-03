@@ -1,0 +1,65 @@
+<main class="main">
+  <div class="inner">
+    <div class="type__wrapper">
+      <p class="prototype__hedding">
+        <%= @spot.name %>
+      </p>
+       <%= link_to "by #{@spot.user.name}",user_path(@spot.user, method: :get, class: :prototype__user) %>
+
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if user_signed_in? && current_user.id == @spot.user_id %>
+        <div class="prototype__manage">
+          <%= link_to "編集する", edit_spot_path(@spot.id), class: :prototype__btn %>
+          <%= link_to "削除する", spot_path(@spot.id), class: :prototype__btn, method: :delete %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="prototype__image">
+        <span><%= image_tag (@spot.image) %></span> 
+      </div>
+      <div class="prototype__body">
+        <div class="prototype__detail">
+          <p class="detail__title">住所</p>
+          <p class="detail__message">
+            <%= @spot.add %>
+          </p>
+        </div>
+        <div class="prototype__detail">
+          <p class="detail__title">詳細</p>
+          <p class="detail__message">
+            <%= @spot.note %>
+          </p>
+        </div>
+      </div>
+      <div class="prototype__comments">
+        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+        <% if user_signed_in? %>
+           <%= form_with(model: [@spot, @comment],local:true) do |f|%>
+            <div class="field">
+              <br ><%= f.label :text, "予約・現地情報" %><br />
+              <%= f.text_area :text,size:"60x5"%>
+            </div>
+            <div class="actions">
+              <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <% end %> 
+        <%end%>
+        <%# // ログインしているユーザーには上記を表示する %>
+        <ul class="comments_lists">
+          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+             <% @comments.each do |comment| %>
+             <li class="comments_list">
+               <%= comment.text %>
+              <%= link_to "#{comment.user.name}", "/users/#{comment.user.id}", class: :comment_user %>
+         
+              </li>
+             <%end%>
+          
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</main>
+

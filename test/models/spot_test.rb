@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SpotsControllerTest < ActionDispatch::IntegrationTest
+class SpotTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
