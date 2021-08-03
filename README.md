@@ -24,9 +24,10 @@ https://buskers-app4.herokuapp.com/
 ![インデックス](https://user-images.githubusercontent.com/76483672/128087975-127b219d-e2b1-44fd-a1f9-9c6a4b2737b5.jpeg)
 
 
-・登録された場所の詳細と予約のコメントの表示
+・登録された場所の詳細
 <img width="855" alt="コメントページ" src="https://user-images.githubusercontent.com/76483672/128088873-9c26e354-fd26-437d-ace4-73bc729fb95f.png">
 
+・予約コメント
 <img width="856" alt="コメント２" src="https://user-images.githubusercontent.com/76483672/128088853-2a337e16-62ff-458a-875e-6734f7a8d802.png">
 
 ・登録者情報ページ
@@ -94,5 +95,57 @@ https://buskers-app4.herokuapp.com/
 - belongs_to :user
 
 
+## ER図
 
+<img width="662" alt="ER" src="https://user-images.githubusercontent.com/76483672/128090844-b994a46d-00c6-49dd-85bd-1910b557dae6.png">
+
+## ローカルでの起動方法
+事前に用意していただく起動環境　MacOS - Ruby 2.6.5 - Ruby on Rails 6.0.0 - JavaScript - SQL - Git - GitHub 
+
+
+ターミナル操作
+
+```ターミナル
+
+% cd buskers_app4
+
+```
+
+```ターミナル
+
+% bundle install
+
+```
+
+```ターミナル
+
+% brew install nodejs
+
+```
+
+```ターミナル
+
+% brew install yarn
+
+```
+
+```ターミナル
+
+% rails db:create
+
+```
+
+```ターミナル
+
+% rails db:migrate
+
+```
+
+```ターミナル
+
+% rails s
+
+```
+
+以上
 
