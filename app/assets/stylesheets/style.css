@@ -139,6 +139,7 @@ a {
 }
 .card {
   width: calc((100% - 50px) / 3);
+  margin-top:30px;
   margin-bottom: 40px;
 }
 .card__img {
@@ -277,6 +278,11 @@ a {
   color: #fff;
   font-size: 10px;
 }
+.map {
+  height: 100px;
+  width: 60%;
+
+}  
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
@@ -320,4 +326,5 @@ a {
   .table{
     width: 100%;
   }
+
 }
